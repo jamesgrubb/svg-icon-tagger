@@ -117,7 +117,9 @@ const extractIconsByStructure = (svgContent: string, fileName: string): Extracte
         const viewBox = `${x} ${y} ${width} ${height}`;
         const altText = g.querySelector('title')?.textContent?.trim();
         
-        const newSvgString = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}">${g.innerHTML}</svg>`;
+        // By using outerHTML, we preserve the group's tags and attributes (like fill, stroke, transform)
+        // which are lost when using innerHTML. This ensures the extracted icon is a complete, valid SVG.
+        const newSvgString = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}">${g.outerHTML}</svg>`;
 
         return {
           id,
