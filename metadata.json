@@ -1,0 +1,5 @@
+{
+  "name": "SVG Icon AI Tagger",
+  "description": "An application to import an SVG sprite file, separate the icons, and use AI to generate searchable tags and descriptions for each icon.",
+  "requestFramePermissions": []
+}
